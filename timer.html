@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>timer</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div class="foto">
-    <img src="/reloj.png" alt="reloj" width="300px">
-  </div>
-  <div id="countdown"></div>
+  <h1 id="countdown">¿empezamos?</h1>
+  <h2>Ciclos completados: <span id="ciclosCompletados">0</span>/4</h2> 
+  <button id="start" onclick="startCountdown()">Empezar</button>
+  <button id="pause" onclick="pauseCountdown()">Pausa</button>
+  <button id="stop" onclick="stopCountdown()">Detener</button>
+  <button onclick="resetTimer()">Reiniciar</button>
+  <audio src="/sonidos/salto-muelles.mp3" id="sonido"></audio>
   
-  <div class="botones"> <button onclick="playCountdown()">Play</button>
-  <button onclick="pauseCountdown()">Pause</button>
-  <button onclick="stopCountdown()">Stop</button>
-</div>
- 
-
   <script src="script.js"></script>
+
 </body>
-</html> 
+</html>
