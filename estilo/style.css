@@ -1,20 +1,66 @@
-body {
-  font-family: Arial, sans-serif;
+body{
+    background-color: #aa8cc0;
+}
+
+
+#caja {
+  display: flex;
+  border: 1px black solid;
+  flex-direction: column;
+  margin: 1%;
+  padding: 1%;
+  justify-content: center;
+  flex-wrap: wrap;
   text-align: center;
-  padding-top: 50px;
-  background-color: #aa8cc0;
+  align-items: center;
 }
 
-h1 {
-  font-size: 48px;
+/*  grupos/paquetes  */
+
+#botonera {
+  border: 1px black solid;
+  margin: auto;
+  margin-bottom: 2%;
+  padding: 1%;
 }
 
-h2 {
-  font-size: 24px;
-  color: #fff;
+#contadores {
+  display: flex;
+  flex-direction: row;
+  border: 1px black solid;
+  padding: 1%;
+  justify-content: center;
+}
+
+#ciclos,
+#descansos {
+  border: 1px black solid;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 50px;
+}
+
+/*  individuales  */
+
+#descansos {
+  margin-left: 10%;
+}
+
+#titulo {
+  border: 1px black solid;
+  text-align: center;
+}
+
+#countdown {
+  border: 1px black solid;
+  font-size: 500%;
+  text-align: center;
 }
 
 button {
-  margin-top: 20px;
-  font-size: 16px;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
 }

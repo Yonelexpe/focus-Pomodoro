@@ -2,17 +2,33 @@
 <html>
 <head>
   <title>Pomodoro Timer</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="estilo/style.css">
 </head>
 <body>
-  <h1 id="countdown">¿empezamos?</h1>
-  <h2>Ciclos completados: <span id="ciclosCompletados">0</span>/4</h2> 
-  <button id="start" onclick="startCountdown()">Empezar</button>
+  <div id="caja">
+
+  <h1 id="titulo">Pomodoro</h1>
+  <div id="contadores">
+    <div id="ciclos">Pomodoros: <span id="ciclosCompletados"> 0</span></div> 
+    <div id= "descansos"> Descansos: <span id="descansosCompletados"> 0</span></div> 
+  </div>
+
+  <h2 id="countdown">¿Empezamos?</h1>
+  
+
+<div id="botonera">
+  <!--<button id="start"  onclick="startCountdown()"> <img src="/imagenes/play.png" height ="90" width="90" /> </button>--> <!--añadir un boton con imagenes-->
+  <button id="start"  onclick="startCountdown()">Start </button>
   <button id="pause" onclick="pauseCountdown()">Pausa</button>
   <button id="stop" onclick="stopCountdown()">Detener</button>
-  <button onclick="resetTimer()">Reiniciar</button>
-  <audio src="/sonidos/salto-muelles.mp3" id="sonido"></audio>
+  <button id="siguiente" onclick="saltoSesion()">Siguiente</button>
+  <button id="reiniciar" onclick="resetTimer()">Reiniciar</button>
   
+</div>
+  <audio src="/sonidos/SD_ALERT_26.mp3" id="sonido"></audio>
+</div>
+
+</div>
   <script src="script.js"></script>
 
 </body>

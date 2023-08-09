@@ -1,42 +1,45 @@
-var tiempoTrabajo = 1;//recuerda que está emn segundos
-var tiempoDescanso = 1;
+var tiempoTrabajo = 10; //recuerda que está emn segundos
+var tiempoDescanso = 5;
 var ciclosTotales = 4; //en el future se querra que sea ajustable
 var ciclosCompletados = 0;
-var contadorActivo = false;
+var descansosCompletados =0 ;
+var contadorActivo = false; // sirve para saver si esta la cuenta taras activa o no
 var countdown;
-var tiempoActual;//variable importante para no joder los valores fijos como trabajo y descanso
-var momento = 1; 
-var wasPaused= false;
+var tiempoActual; //variable importante para no joder los valores fijos como trabajo y descanso
+var momento = 1; //Encargado de decir si es descanso o trabajo (impar trabajo, par trabajo)
+var wasPaused = false;
 var countdownElement = document.getElementById("countdown");
 //countdownElement.innerHTML='ha entrado';
 
-
 function startCountdown() {
+  //cuando ldas a start
   if (!contadorActivo) {
     contadorActivo = true;
-    if (!wasPaused) {// cuando se le da a pausa was pause es true por lo que no reinicia los contadores
+    if (!wasPaused) {
+      // cuando se le da a pausa was pause es true por lo que no reinicia los contadores
 
-    if (momento%2 == 1) {
-      tiempoActual = tiempoTrabajo;
-    }else{
-      tiempoActual = tiempoDescanso;
+      if (momento % 2 == 1) {
+        tiempoActual = tiempoTrabajo;
+      } else {
+        tiempoActual = tiempoDescanso;
+      }
     }
-     }
 
-     wasPaused = false;
-     if (momento%2 == 1) {
+    wasPaused = false;
+    if (momento % 2 == 1) {
       countdown = setInterval(updateCountdown, 1000);
-    }else{
-      countdown = setInterval(updateDescanso, 1000);    
+    } else {
+      countdown = setInterval(updateDescanso, 1000);
     }
   }
 }
 
 function updateCountdown() {
-  
   var minutos = Math.floor(tiempoActual / 60);
   var segundos = tiempoActual % 60;
-  countdownElement.innerHTML = `Tiempo restante: ${minutos < 10 ? '0' : ''}${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
+  countdownElement.innerHTML = `Tiempo restante: ${
+    minutos < 10 ? "0" : ""
+  }${minutos}:${segundos < 10 ? "0" : ""}${segundos}`;
 
   if (tiempoActual <= 0) {
     momento++;
@@ -45,84 +48,90 @@ function updateCountdown() {
     ciclosCompletados++;
     clearInterval(countdown);
     document.getElementById("ciclosCompletados").innerHTML = ciclosCompletados;
-    countdownElement.innerHTML ='empieza el descanso';
+    countdownElement.innerHTML = "empieza el descanso";
     if (ciclosCompletados >= ciclosTotales) {
-      
-      document.body.style.backgroundColor = "#aa8cc0";
-      document.getElementById("countdown").innerHTML = "¡Reto Pomodoro completado!";
-      document.getElementById("ciclosCompletados").innerHTML = ciclosCompletados;
+      document.getElementById("countdown").innerHTML =
+        "¡Reto Pomodoro completado!";
+      document.getElementById("ciclosCompletados").innerHTML =
+        ciclosCompletados;
       ocultarBotones();
     }
   } else {
     tiempoActual--;
   }
-  
 }
 
 function updateDescanso() {
   var minutos = Math.floor(tiempoActual / 60);
   var segundos = tiempoActual % 60;
-  countdownElement.innerHTML = `Tiempo restante: ${minutos < 10 ? '0' : ''}${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
+  countdownElement.innerHTML = `Tiempo restante: ${
+    minutos < 10 ? "0" : ""
+  }${minutos}:${segundos < 10 ? "0" : ""}${segundos}`;
 
-  if (tiempoActual <=0 ) {
+  if (tiempoActual <= 0) {
     momento++;
+    descansosCompletados++;
     pitido();
     contadorActivo = false;
     clearInterval(countdown);
-    document.getElementById("ciclosCompletados").innerHTML = ciclosCompletados;
-    countdownElement.innerHTML ='continuar con el trabajo';
+    document.getElementById("descansosCompletados").innerHTML = descansosCompletados;
+    countdownElement.innerHTML = "continuar con el trabajo";
   } else {
     tiempoActual--;
   }
 }
 
-function pauseCountdown() { //cuando el contador esta a cero y se da a pausa, como esta en 0, si le das a play se lo salta
-if (tiempoActual == 0) {
-  
-} else {
-  clearInterval(countdown);
-  contadorActivo = false;
-  wasPaused = true;
+function pauseCountdown() {
+  //cuando el contador esta a cero y se da a pausa, como esta en 0, si le das a play se lo salta (nota yo del futuro: ni puta idea lo que quise decir aqui)
+  if (tiempoActual == 0) {
+  } else {
+    clearInterval(countdown);
+    contadorActivo = false;
+    wasPaused = true;
+  }
 }
-  
-}
-
-
 
 ////la diferencia entre stop y reiniciar es que reiniciar empieza desde el principio pero stop (le voy a cambiar de nombre a algo mas intuitivo) solo reinicia la ronda
 
 function stopCountdown() {
-  clearInterval(countdown);
+  //es del boton DETENER que soy gilipollas y no se poner nombres
+  if (wasPaused == true || contadorActivo == true) {
+    clearInterval(countdown);
   contadorActivo = false;
   wasPaused = false;
-  if (momento%2 == 1) {
+  if (momento % 2 == 1) {
     tiempoActual = tiempoTrabajo;
-  }else{
+  } else {
     tiempoActual = tiempoDescanso;
   }
   var minutos = Math.floor(tiempoActual / 60);
   var segundos = tiempoActual % 60;
-  countdownElement.innerHTML = `Tiempo restante: ${minutos < 10 ? '0' : ''}${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
+  countdownElement.innerHTML = `Tiempo restante: ${
+    minutos < 10 ? "0" : ""
+  }${minutos}:${segundos < 10 ? "0" : ""}${segundos}`;
 
   document.getElementById("ciclosCompletados").innerHTML = ciclosCompletados;
+  }
+  
 }
 
 function resetTimer() {
-  if (ciclosCompletados >= ciclosTotales) { //muestra otra vez los botones cuando se han ocultado 
+  if (ciclosCompletados >= ciclosTotales) {
+    //muestra otra vez los botones cuando se han ocultado
     document.getElementById("start").style.display = "inline";
     document.getElementById("pause").style.display = "inline";
     document.getElementById("stop").style.display = "inline";
+    document.getElementById("siguiente").style.display = "inline";
   }
   clearInterval(countdown);
   contadorActivo = false;
   wasPaused = false;
-  tiempoActual = 0; 
+  tiempoActual = 0;
   momento = 1;
   ciclosCompletados = 0;
   countdownElement.innerHTML = "Tiempo restante: 00:00";
   document.getElementById("ciclosCompletados").innerHTML = ciclosCompletados;
-  document.body.style.backgroundColor = "#ffffff"; // Cambiar al color deseado, lo cambiare a lavanda
-  
+  countdownElement.innerHTML='¿Empezamos?'
 }
 
 function pitido() {
@@ -130,8 +139,48 @@ function pitido() {
   alertSound.play();
 }
 
-function ocultarBotones() { // asi evitamos que le den otra vez a play y queda mas curioso
+function ocultarBotones() {
+  // asi evitamos que le den otra vez a play y queda mas curioso
   document.getElementById("start").style.display = "none";
   document.getElementById("pause").style.display = "none";
   document.getElementById("stop").style.display = "none";
+  document.getElementById("siguiente").style.display = "none";
+}
+
+function saltoSesion() {
+  //el bton de SIGUIENTE
+  if (contadorActivo) {
+    clearInterval(countdown);
+    contadorActivo = false;
+  }
+  tiempoActual = 0;
+
+  if (momento % 2 == 1) {
+    if (tiempoActual <= 0) {
+      momento++;
+      contadorActivo = false;
+      ciclosCompletados++;
+      clearInterval(countdown);
+      document.getElementById("ciclosCompletados").innerHTML =
+        ciclosCompletados;
+      countdownElement.innerHTML = "empieza el descanso";
+      if (ciclosCompletados >= ciclosTotales) {
+        document.body.style.backgroundColor = "#aa8cc0";
+        document.getElementById("countdown").innerHTML =
+          "¡Reto Pomodoro completado!";
+        document.getElementById("ciclosCompletados").innerHTML =
+          ciclosCompletados;
+        ocultarBotones();
+      }
+    }
+  } else {
+    if (tiempoActual <= 0) {
+      momento++;
+      contadorActivo = false;
+      clearInterval(countdown);
+      document.getElementById("ciclosCompletados").innerHTML =
+        ciclosCompletados;
+      countdownElement.innerHTML = "continuar con el trabajo";
+    }
+  }
 }
