@@ -1,5 +1,5 @@
-var tiempoTrabajo = 10; //recuerda que está emn segundos
-var tiempoDescanso = 5;
+var tiempoTrabajo = 1500; //recuerda que está emn segundos
+var tiempoDescanso = 300;
 var ciclosTotales = 4; //en el future se querra que sea ajustable
 var ciclosCompletados = 0;
 var descansosCompletados =0 ;
