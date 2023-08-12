@@ -9,10 +9,14 @@ var tiempoActual; //variable importante para no joder los valores fijos como tra
 var momento = 1; //Encargado de decir si es descanso o trabajo (impar trabajo, par trabajo)
 var wasPaused = false;
 var countdownElement = document.getElementById("countdown");
+document.getElementById("pause").style.display = "none";
 //countdownElement.innerHTML='ha entrado';
 
 function startCountdown() {
-  //cuando ldas a start
+  //cuando ldas al boton start
+  document.getElementById("start").style.display = "none";
+  document.getElementById("pause").style.display = "inline";
+
   if (!contadorActivo) {
     contadorActivo = true;
     if (!wasPaused) {
@@ -35,6 +39,7 @@ function startCountdown() {
 }
 
 function updateCountdown() {
+  //cuenta atras del tiempotrabajo
   var minutos = Math.floor(tiempoActual / 60);
   var segundos = tiempoActual % 60;
   countdownElement.innerHTML = `Tiempo restante: ${
@@ -42,6 +47,8 @@ function updateCountdown() {
   }${minutos}:${segundos < 10 ? "0" : ""}${segundos}`;
 
   if (tiempoActual <= 0) {
+    document.getElementById("start").style.display = "inline";
+    document.getElementById("pause").style.display = "none";
     momento++;
     pitido();
     contadorActivo = false;
@@ -83,6 +90,8 @@ function updateDescanso() {
 
 function pauseCountdown() {
   //cuando el contador esta a cero y se da a pausa, como esta en 0, si le das a play se lo salta (nota yo del futuro: ni puta idea lo que quise decir aqui)
+  document.getElementById("pause").style.display = "none";
+  document.getElementById("start").style.display = "inline";
   if (tiempoActual == 0) {
   } else {
     clearInterval(countdown);
@@ -94,7 +103,9 @@ function pauseCountdown() {
 ////la diferencia entre stop y reiniciar es que reiniciar empieza desde el principio pero stop (le voy a cambiar de nombre a algo mas intuitivo) solo reinicia la ronda
 
 function stopCountdown() {
-  //es del boton DETENER que soy gilipollas y no se poner nombres
+  //es del boton DETENER/patras que soy gilipollas y no se poner nombres
+  document.getElementById("start").style.display = "inline";
+  document.getElementById("pause").style.display = "none";
   if (wasPaused == true || contadorActivo == true) {
     clearInterval(countdown);
   contadorActivo = false;
@@ -116,6 +127,8 @@ function stopCountdown() {
 }
 
 function resetTimer() {
+  document.getElementById("start").style.display = "inline";
+  document.getElementById("pause").style.display = "none";
   if (ciclosCompletados >= ciclosTotales) {
     //muestra otra vez los botones cuando se han ocultado
     document.getElementById("start").style.display = "inline";
@@ -149,6 +162,8 @@ function ocultarBotones() {
 
 function saltoSesion() {
   //el bton de SIGUIENTE
+  document.getElementById("start").style.display = "inline";
+  document.getElementById("pause").style.display = "none";
   if (contadorActivo) {
     clearInterval(countdown);
     contadorActivo = false;
