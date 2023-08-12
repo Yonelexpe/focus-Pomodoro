@@ -1,5 +1,5 @@
-var tiempoTrabajo = 1500; //recuerda que está emn segundos
-var tiempoDescanso = 300;
+var tiempoTrabajo = 25 * 60; //recuerda que está emn segundos
+var tiempoDescanso = 5 * 60;
 var ciclosTotales = 4; //en el future se querra que sea ajustable
 var ciclosCompletados = 0;
 var descansosCompletados =0 ;
@@ -42,7 +42,7 @@ function updateCountdown() {
   //cuenta atras del tiempotrabajo
   var minutos = Math.floor(tiempoActual / 60);
   var segundos = tiempoActual % 60;
-  countdownElement.innerHTML = `Tiempo restante: ${
+  countdownElement.innerHTML = ` ${
     minutos < 10 ? "0" : ""
   }${minutos}:${segundos < 10 ? "0" : ""}${segundos}`;
 
@@ -71,7 +71,7 @@ function updateCountdown() {
 function updateDescanso() {
   var minutos = Math.floor(tiempoActual / 60);
   var segundos = tiempoActual % 60;
-  countdownElement.innerHTML = `Tiempo restante: ${
+  countdownElement.innerHTML = ` ${
     minutos < 10 ? "0" : ""
   }${minutos}:${segundos < 10 ? "0" : ""}${segundos}`;
 
@@ -117,7 +117,7 @@ function stopCountdown() {
   }
   var minutos = Math.floor(tiempoActual / 60);
   var segundos = tiempoActual % 60;
-  countdownElement.innerHTML = `Tiempo restante: ${
+  countdownElement.innerHTML = `${
     minutos < 10 ? "0" : ""
   }${minutos}:${segundos < 10 ? "0" : ""}${segundos}`;
 
@@ -142,7 +142,7 @@ function resetTimer() {
   tiempoActual = 0;
   momento = 1;
   ciclosCompletados = 0;
-  countdownElement.innerHTML = "Tiempo restante: 00:00";
+  countdownElement.innerHTML = "00:00";
   document.getElementById("ciclosCompletados").innerHTML = ciclosCompletados;
   countdownElement.innerHTML='¿Empezamos?'
 }

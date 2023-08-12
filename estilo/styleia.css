@@ -1,98 +1,102 @@
 body {
-    background-color: #aa8cc0;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
+  background-color: #f3e5f5;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#caja {
+  display: flex;
+  border: 2px solid #6200ea;
+  flex-direction: column;
+  margin: 2%;
+  padding: 2%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#botonera {
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+}
+
+#contadores {
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+}
+
+#ciclos,
+#descansos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 80px;
+  border-radius: 40px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#ciclos {
+  background-color: #ff6347;
+  color: #ffffff;
+}
+
+#descansos {
+  background-color: #ffa07a;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+#titulo {
+  text-align: center;
+  color: #6200ea;
+  font-size:90px;
+  margin-bottom: 15px;
+}
+
+#countdown {
+  font-size: 80px;
+  font-weight: bold;
+}
+
+button {
+  border: none;
+  background-color: #f07f7f;
+  color: #ffffff;
+  font-size: 30px;
+  width: 140px;
+  height: 140px;
+  border-radius: 70px;
+  margin: 15px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
   #caja {
-    display: flex;
-    border: 5px solid #68438391;
-    flex-direction: column;
-    margin: 2%;
-    padding: 2%;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    background-color:#c594c7;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin: 5%;
+    padding: 5%;
   }
   
   #botonera {
-    display: flex;
-    justify-content: center;
-    margin: 2%;
-    padding: 2%;
+    margin: 5%;
+    padding: 5%;
   }
   
   #contadores {
-    display: flex;
-    justify-content: center;
-    margin: 2%;
-    padding: 2%;
-  }
-  
-  #ciclos,
-  #descansos {
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 120px;
-    height: 50px;
-    border-radius: 25px;
-    font-weight: bold;
   }
   
-  #ciclos {
-    background-color: #f05c5c;
-    color: #ffffff;
-  }
-  
-  #descansos {
-    background-color: #f05c5c;
-    color: #ffffff;
-    margin-left: 10px;
-  }
-  
-  #titulo {
-    text-align: center;
-    color: #6e0f0f;
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  #countdown {
+  #ciclos, #descansos, #countdown {
     font-size: 36px;
-    font-weight: bold;
   }
-  
-  button {
-    border: none;
-    background-color: #f07f7f;
-    color: #ffffff;
-    font-size: 18px;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin: 5px;
-    cursor: pointer;
-  }
-  
-  @media screen and (max-width: 600px) {
-    #caja {
-      margin: 5%;
-      padding: 5%;
-    }
-    
-    #botonera {
-      margin: 5%;
-      padding: 5%;
-    }
-    
-    #contadores {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  
+}
