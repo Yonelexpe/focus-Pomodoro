@@ -2,7 +2,7 @@ var tiempoTrabajo = 25 * 60; //recuerda que está emn segundos
 var tiempoDescanso = 5 * 60;
 var ciclosTotales = 4; //en el future se querra que sea ajustable
 var ciclosCompletados = 0;
-var descansosCompletados =0 ;
+var descansosCompletados = 0;
 var contadorActivo = false; // sirve para saver si esta la cuenta taras activa o no
 var countdown;
 var tiempoActual; //variable importante para no joder los valores fijos como trabajo y descanso
@@ -42,9 +42,9 @@ function updateCountdown() {
   //cuenta atras del tiempotrabajo
   var minutos = Math.floor(tiempoActual / 60);
   var segundos = tiempoActual % 60;
-  countdownElement.innerHTML = ` ${
-    minutos < 10 ? "0" : ""
-  }${minutos}:${segundos < 10 ? "0" : ""}${segundos}`;
+  countdownElement.innerHTML = ` ${minutos < 10 ? "0" : ""}${minutos}:${
+    segundos < 10 ? "0" : ""
+  }${segundos}`;
 
   if (tiempoActual <= 0) {
     document.getElementById("start").style.display = "inline";
@@ -71,9 +71,9 @@ function updateCountdown() {
 function updateDescanso() {
   var minutos = Math.floor(tiempoActual / 60);
   var segundos = tiempoActual % 60;
-  countdownElement.innerHTML = ` ${
-    minutos < 10 ? "0" : ""
-  }${minutos}:${segundos < 10 ? "0" : ""}${segundos}`;
+  countdownElement.innerHTML = ` ${minutos < 10 ? "0" : ""}${minutos}:${
+    segundos < 10 ? "0" : ""
+  }${segundos}`;
 
   if (tiempoActual <= 0) {
     momento++;
@@ -81,7 +81,8 @@ function updateDescanso() {
     pitido();
     contadorActivo = false;
     clearInterval(countdown);
-    document.getElementById("descansosCompletados").innerHTML = descansosCompletados;
+    document.getElementById("descansosCompletados").innerHTML =
+      descansosCompletados;
     countdownElement.innerHTML = "continuar con el trabajo";
   } else {
     tiempoActual--;
@@ -108,22 +109,21 @@ function stopCountdown() {
   document.getElementById("pause").style.display = "none";
   if (wasPaused == true || contadorActivo == true) {
     clearInterval(countdown);
-  contadorActivo = false;
-  wasPaused = false;
-  if (momento % 2 == 1) {
-    tiempoActual = tiempoTrabajo;
-  } else {
-    tiempoActual = tiempoDescanso;
-  }
-  var minutos = Math.floor(tiempoActual / 60);
-  var segundos = tiempoActual % 60;
-  countdownElement.innerHTML = `${
-    minutos < 10 ? "0" : ""
-  }${minutos}:${segundos < 10 ? "0" : ""}${segundos}`;
+    contadorActivo = false;
+    wasPaused = false;
+    if (momento % 2 == 1) {
+      tiempoActual = tiempoTrabajo;
+    } else {
+      tiempoActual = tiempoDescanso;
+    }
+    var minutos = Math.floor(tiempoActual / 60);
+    var segundos = tiempoActual % 60;
+    countdownElement.innerHTML = `${minutos < 10 ? "0" : ""}${minutos}:${
+      segundos < 10 ? "0" : ""
+    }${segundos}`;
 
-  document.getElementById("ciclosCompletados").innerHTML = ciclosCompletados;
+    document.getElementById("ciclosCompletados").innerHTML = ciclosCompletados;
   }
-  
 }
 
 function resetTimer() {
@@ -144,7 +144,7 @@ function resetTimer() {
   ciclosCompletados = 0;
   countdownElement.innerHTML = "00:00";
   document.getElementById("ciclosCompletados").innerHTML = ciclosCompletados;
-  countdownElement.innerHTML='¿Empezamos?'
+  countdownElement.innerHTML = "¿Empezamos?";
 }
 
 function pitido() {
@@ -198,4 +198,36 @@ function saltoSesion() {
       countdownElement.innerHTML = "continuar con el trabajo";
     }
   }
+}
+
+function prueba() {
+  const seleccion = document.getElementById("musiquita").value;
+  const video = document.getElementById("cajamusica");
+
+  switch (seleccion) {
+    case "jazz":
+      document.getElementById("cajamusica").style.display = "inline";
+      video.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/7l16rt1h2tM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      break;
+    case "ambiental":
+      document.getElementById("cajamusica").style.display = "inline";
+      video.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/dRatWsgTk5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      break;
+    case "electro":
+      document.getElementById("cajamusica").style.display = "inline";
+      video.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/1HN6_KpdJow" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      break;
+    case "lofihiphop":
+      document.getElementById("cajamusica").style.display = "inline";
+      video.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      break;
+    case "nada":
+      document.getElementById("cajamusica").style.display = "none";
+break
+    default:
+
+      break;
+  }
+  
+  
 }

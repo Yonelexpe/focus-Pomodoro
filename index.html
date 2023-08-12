@@ -3,6 +3,7 @@
 <head>
   <title>Pomodoro Timer</title>
   <link rel="stylesheet" type="text/css" href="estilo/styleia.css">
+  
 </head>
 <body>
   <div id="caja">
@@ -27,12 +28,20 @@
 </div>
   <audio src="/sonidos/SD_ALERT_26.mp3" id="sonido"></audio>
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/dRatWsgTk5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+  <label for="musiquita">¿Te apetece escuchar algo?</label>
+  <select name="musiquita" id="musiquita" onchange="prueba()">
+    <option value="nada">---</option>
+    <option value="jazz">jazz y cafe</option>
+    <option value="electro">electro</option>
+    <option value="ambiental">ambiental</option>
+    <option value="lofihiphop">lofi hip hop</option>
+  </select>
+  <div id="cajamusica"></div>
+  
 </div><!--fin div de la caja-->
 
 </div>
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
