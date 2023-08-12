@@ -207,27 +207,28 @@ function prueba() {
   switch (seleccion) {
     case "jazz":
       document.getElementById("cajamusica").style.display = "inline";
-      video.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/7l16rt1h2tM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      video.innerHTML =
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/7l16rt1h2tM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
       break;
     case "ambiental":
       document.getElementById("cajamusica").style.display = "inline";
-      video.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/dRatWsgTk5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      video.innerHTML =
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/dRatWsgTk5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
       break;
     case "electro":
       document.getElementById("cajamusica").style.display = "inline";
-      video.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/1HN6_KpdJow" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      video.innerHTML =
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/1HN6_KpdJow" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
       break;
     case "lofihiphop":
       document.getElementById("cajamusica").style.display = "inline";
-      video.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      video.innerHTML =
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
       break;
     case "nada":
       document.getElementById("cajamusica").style.display = "none";
-break
+      break;
     default:
-
       break;
   }
-  
-  
 }

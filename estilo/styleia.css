@@ -14,22 +14,30 @@ body {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background-color: #ffffff;
+  background-image:url(/imagenes/fondo/flores.jpg) ;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#titulo {
+  text-align: center;
+  color: #6200ea;
+  font-size:90px;
+  
 }
 
 #botonera {
   display: flex;
   justify-content: center;
-  margin: 2%;
+
   padding: 2%;
 }
 
 #contadores {
   display: flex;
   justify-content: center;
-  margin: 2%;
   padding: 2%;
 }
 
@@ -46,26 +54,27 @@ body {
 }
 
 #ciclos {
-  background-color: #ff6347;
+  background-color: #ffcc80;
   color: #ffffff;
 }
 
 #descansos {
-  background-color: #ffa07a;
+  background-color: #ffcc80;
   color: #ffffff;
   margin-left: 20px;
 }
 
-#titulo {
-  text-align: center;
-  color: #6200ea;
-  font-size:90px;
-  margin-bottom: 15px;
-}
+
 
 #countdown {
   font-size: 80px;
   font-weight: bold;
+  animation: countdown-animation 10s infinite alternate;
+}
+
+@keyframes countdown-animation {
+  from {color: #6200ea;}
+  to {color: #f07f7f;}
 }
 
 button {
@@ -78,8 +87,12 @@ button {
   border-radius: 70px;
   margin: 15px;
   cursor: pointer;
+  transition: transform 0.2s;
 }
 
+button:hover {
+  transform: scale(1.1);
+}
 @media screen and (max-width: 600px) {
   #caja {
     margin: 5%;
@@ -99,4 +112,37 @@ button {
   #ciclos, #descansos, #countdown {
     font-size: 36px;
   }
+}
+
+label[for="musiquita"] {
+  display: block;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+xlabel[for="musiquita"] {
+  display: block;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+#musiquita {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  padding: 5px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#musiquita:focus {
+  outline: none;
+}
+
+label[for="musiquita"] {
+  font-size: 30px;
+
 }
